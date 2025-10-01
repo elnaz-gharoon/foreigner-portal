@@ -1,5 +1,6 @@
-<h1>Hello Elnaz</h1>
-<button matButton="filled">Click me</button>
+<h1>{{ 'common.title' | translate }}</h1>
+<h1>{{ 'common.message' | translate }}</h1>
+<button matButton="filled" (click)="onLanguageSwitch()">Switch Language</button>
 <button matButton="tonal" >Basic</button>
 
 <mat-slide-toggle>Toggle me!</mat-slide-toggle>
