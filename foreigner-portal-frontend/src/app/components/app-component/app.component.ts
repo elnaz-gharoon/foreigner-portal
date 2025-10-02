@@ -19,7 +19,8 @@ import { TranslateDirective, TranslatePipe, TranslateService } from '@ngx-transl
     MatIconModule,
     MatCardModule,
     TranslatePipe,
-    TranslateDirective
+    TranslateDirective,
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
