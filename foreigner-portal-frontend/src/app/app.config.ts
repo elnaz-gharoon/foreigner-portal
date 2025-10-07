@@ -6,6 +6,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
+import { withNgxsFormPlugin } from '@ngxs/form-plugin';
+import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
+import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
+import { withNgxsStoragePlugin, SESSION_STORAGE_ENGINE } from '@ngxs/storage-plugin';
+import { provideStore } from '@ngxs/store';
+import { AppState } from './state/app.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +26,13 @@ export const appConfig: ApplicationConfig = {
       }),
       fallbackLang: 'en',
       lang: 'en'
-    })]
+    }), provideStore(
+[AppState],
+withNgxsReduxDevtoolsPlugin(),
+withNgxsFormPlugin(),
+withNgxsLoggerPlugin(),
+withNgxsRouterPlugin(),
+withNgxsStoragePlugin({
+  keys: [{key: AppState, engine: SESSION_STORAGE_ENGINE}]
+}))]
 };

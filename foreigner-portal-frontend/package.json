@@ -22,6 +22,13 @@
     "@angular/router": "^17.3.0",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
+    "@ngxs/devtools-plugin": "18.1.6",
+    "@ngxs/form-plugin": "18.1.6",
+    "@ngxs/hmr-plugin": "18.1.6",
+    "@ngxs/logger-plugin": "18.1.6",
+    "@ngxs/router-plugin": "18.1.6",
+    "@ngxs/storage-plugin": "18.1.6",
+    "@ngxs/store": "^18.1.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
