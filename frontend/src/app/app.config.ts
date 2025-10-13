@@ -1,9 +1,7 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { APP_ID, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter, withNavigationErrorHandler } from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
@@ -13,12 +11,15 @@ import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { withNgxsStoragePlugin, SESSION_STORAGE_ENGINE } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 import { AppState } from './state/app.state';
+import { routes } from './app.router';
+import { BrowserModule } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), provideAnimationsAsync(),
+    { provide: APP_ID, useValue: 'my-app' },
+    BrowserModule,
+    provideHttpClient(withInterceptorsFromDi()),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
@@ -26,19 +27,20 @@ export const appConfig: ApplicationConfig = {
       }),
       fallbackLang: 'en',
       lang: 'en'
-    }), provideStore(
-[AppState],
-withNgxsReduxDevtoolsPlugin(),
-withNgxsFormPlugin(),
-withNgxsLoggerPlugin(),
-withNgxsRouterPlugin(),
-withNgxsStoragePlugin({
-  keys: [{key: AppState, engine: SESSION_STORAGE_ENGINE}]
-})), provideStore(
-[],
-withNgxsReduxDevtoolsPlugin(),
-withNgxsFormPlugin(),
-withNgxsLoggerPlugin(),
-withNgxsRouterPlugin(),
-withNgxsStoragePlugin())]
+    }), 
+    provideRouter(routes,
+      withNavigationErrorHandler((error: any) => {
+        console.error('Navigation error:', error);
+      })
+    ),
+    provideStore([AppState],
+      withNgxsReduxDevtoolsPlugin(),
+      withNgxsFormPlugin(),
+      withNgxsLoggerPlugin(),
+      withNgxsRouterPlugin(),
+      withNgxsStoragePlugin(
+        {keys: [{key: AppState, engine: SESSION_STORAGE_ENGINE}]}
+      )
+    )
+  ]
 };
