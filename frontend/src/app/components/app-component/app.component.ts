@@ -5,16 +5,16 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule, 
-    TranslatePipe,
-    HeaderComponent
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        TranslatePipe,
+        HeaderComponent
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   private translate = inject(TranslateService);

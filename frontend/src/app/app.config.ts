@@ -34,5 +34,11 @@ withNgxsLoggerPlugin(),
 withNgxsRouterPlugin(),
 withNgxsStoragePlugin({
   keys: [{key: AppState, engine: SESSION_STORAGE_ENGINE}]
-}))]
+})), provideStore(
+[],
+withNgxsReduxDevtoolsPlugin(),
+withNgxsFormPlugin(),
+withNgxsLoggerPlugin(),
+withNgxsRouterPlugin(),
+withNgxsStoragePlugin())]
 };
