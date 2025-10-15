@@ -3,8 +3,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "importHelpers": true,
-    "target": "es2015", 
-    "module": "esnext",
     "outDir": "./out-tsc/app",
     "types": [
       "@angular/localize"

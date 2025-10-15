@@ -1,1 +1,35 @@
-<h1>Header is here</h1>
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark px-3 border-bottom shadow-sm">
+    <!-- Title (passed via @Input) -->
+    <span class="navbar-brand fs-4">{{ title }}</span>
+
+    <!-- Right side icons -->
+    <div class="ms-auto d-flex align-items-center gap-3">
+        <!-- Language switch button -->
+        <button class="btn btn-outline-light btn-sm" title="Change language">
+            <i class="bi bi-translate"></i>
+        </button>
+
+        <!-- User info button -->
+        <button class="btn btn-outline-light btn-sm" title="User account">
+            <i class="bi bi-person-circle"></i>
+        </button>
+
+        <!-- More options dropdown -->
+        <div ngbDropdown class="d-inline-block" container="body">
+            <button class="btn btn-outline-light btn-sm dropdown-toggle" id="headerMenu" ngbDropdownToggle
+                aria-expanded="false" title="More options">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul ngbDropdownMenu aria-labelledby="headerMenu"
+                class="dropdown-menu-end animate__animated animate__fadeIn">
+                <li><button ngbDropdownItem>Profile</button></li>
+                <li><button ngbDropdownItem>Settings</button></li>
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li><button ngbDropdownItem>Logout</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
