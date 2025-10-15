@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../header/header.component';
@@ -9,7 +8,6 @@ import { HeaderComponent } from '../header/header.component';
     standalone: true,
     imports: [
         CommonModule,
-        MatButtonModule,
         TranslatePipe,
         HeaderComponent
     ],
