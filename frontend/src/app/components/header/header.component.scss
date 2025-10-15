@@ -1,9 +1,9 @@
-.navbar {
-  height: 60px;
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.nav-link.active {
+  font-weight: 600;
 }

@@ -1,35 +1,51 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark px-3 border-bottom shadow-sm">
-    <!-- Title (passed via @Input) -->
-    <span class="navbar-brand fs-4">{{ title }}</span>
+<nav class="navbar navbar-expand-lg bg-indigo-800 border-bottom">
+    <div class="container-fluid">
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <i class="bi bi-info-circle-fill fs-2 text-primary"></i>
+            <span class="fw-semibold">Bootstrap Icons</span>
+        </a>
 
-    <!-- Right side icons -->
-    <div class="ms-auto d-flex align-items-center gap-3">
-        <!-- Language switch button -->
-        <button class="btn btn-outline-light btn-sm" title="Change language">
-            <i class="bi bi-translate"></i>
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- User info button -->
-        <button class="btn btn-outline-light btn-sm" title="User account">
-            <i class="bi bi-person-circle"></i>
-        </button>
-
-        <!-- More options dropdown -->
-        <div ngbDropdown class="d-inline-block" container="body">
-            <button class="btn btn-outline-light btn-sm dropdown-toggle" id="headerMenu" ngbDropdownToggle
-                aria-expanded="false" title="More options">
-                <i class="bi bi-three-dots-vertical"></i>
-            </button>
-
-            <ul ngbDropdownMenu aria-labelledby="headerMenu"
-                class="dropdown-menu-end animate__animated animate__fadeIn">
-                <li><button ngbDropdownItem>Profile</button></li>
-                <li><button ngbDropdownItem>Settings</button></li>
-                <li>
-                    <hr class="dropdown-divider" />
+        <!-- Collapsible Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Icons</a>
                 </li>
-                <li><button ngbDropdownItem>Logout</button></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Usage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
             </ul>
+
+            <!-- Right side buttons -->
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-github"></i>
+                </button>
+
+                <div ngbDropdown>
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" ngbDropdownToggle>
+                        <i class="bi bi-gear"></i>
+                    </button>
+                    <ul ngbDropdownMenu>
+                        <li><button ngbDropdownItem>Settings</button></li>
+                        <li><button ngbDropdownItem>Profile</button></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><button ngbDropdownItem>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
