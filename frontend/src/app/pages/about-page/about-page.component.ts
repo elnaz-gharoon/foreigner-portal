@@ -5,10 +5,10 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-about',
   imports: [CommonModule, TranslatePipe],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './about-page.component.html',
+  styleUrl: './about-page.component.scss'
 })
-export class AboutComponent {
+export class AboutPageComponent {
   private translate = inject(TranslateService);
 
   onLanguageSwitch() {
