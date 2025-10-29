@@ -1,14 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { HeaderComponent } from '../header/header.component';
+import { TranslateService } from '@ngx-translate/core';
+import { HeaderComponent } from '../../components/header/header.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     imports: [
         CommonModule,
-        TranslatePipe,
+        RouterModule,
         HeaderComponent
     ],
     templateUrl: './app.component.html',
@@ -21,10 +22,5 @@ export class AppComponent {
         this.translate.addLangs(['de', 'en']);
         this.translate.setFallbackLang('en');
         this.translate.use('en');
-    }
-
-    onLanguageSwitch() {
-      console.log('>>>>>>>>>>>>>>>>', this.translate.getCurrentLang());
-      this.translate.use(this.translate.getCurrentLang() === 'en' ? 'de' : 'en');
     }
 }
