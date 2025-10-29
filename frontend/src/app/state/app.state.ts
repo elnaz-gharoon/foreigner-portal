@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { State } from "@ngxs/store";
+import { AppStateModel } from "../models/app-state.model";
+import { ConstantValues } from "../utils/constant-values";
 
-@State<any>({
+@State<AppStateModel>({
     name: 'appState',
     defaults: {
-        appTitle: 'My App',
-        myData: 'Elnaz data'
+        professions: ConstantValues.mockProfessions,
     }
 })
 @Injectable()
