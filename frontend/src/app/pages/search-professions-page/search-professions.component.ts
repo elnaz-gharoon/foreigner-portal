@@ -17,7 +17,7 @@ export class SearchProfessionsComponent implements OnInit {
   professionsSignal: Signal<Profession[]> = signal([]);
 
   jobsTitleList: string[] = [];
-
+  filterJobs : Profession[] = [];
   constructor(private store: Store) {
   }
 
@@ -28,6 +28,8 @@ export class SearchProfessionsComponent implements OnInit {
   }
 
   onJobTitleFilter(jobTitle: string): void {
+     this.filterJobs = this.professionsSignal().filter(p => p.title.toLowerCase() === jobTitle.toLowerCase());
+
     console.log('>>>>>>>>>>>>>>>>JOB TITLE:', jobTitle);
   }
 }
