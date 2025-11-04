@@ -9,10 +9,43 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3">
-                            <input type="search" class="form-control" id="floatingInput" placeholder="Search anything here...">
+                            <input type="search" class="form-control" id="floatingInput"
+                                placeholder="Search anything here...">
                             <label for="floatingInput">Search anything</label>
                         </div>
                     </div>
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                                Profession
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                @for (jobTitle of jobsTitleList; track $index) {
+                                <button ngbDropdownItem (click)="onJobTitleFilter(jobTitle)">{{ jobTitle }}</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @for (profession of professionsSignal(); track $index) {
+                    <div class="row mx-5 my-1">
+                        <div class="card p-0">
+                            <div class="card-header">
+                                <h5 class="card-title">{{ profession.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Address: {{ profession.address | json }}</li>
+                                    <li>Email: {{ profession.email }}</li>
+                                    <li>Phone: {{ profession.phoneNumber }}</li>
+                                    <li>Manager: {{ profession.manager.firstname }} {{ profession.manager.lastname }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    }
                 </div>
             </div>
         </div>
