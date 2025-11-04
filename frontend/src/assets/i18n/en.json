@@ -1,6 +1,8 @@
 {
           "common": {
                     "title": "Welcome to Foreigner Portal!",
-                    "message": "Do you already have an account with us?"
+                    "message": "Do you already have an account with us?",
+                    "register": "If you don't have an account, you can create one here"
           }
+         
 }

@@ -1,6 +1,7 @@
 {
     "common": {
         "title": "Willkommen beim Ausländerportal!",
-        "message": "Haben Sie bereits ein Konto bei uns?"
+        "message": "Haben Sie bereits ein Konto bei uns?",
+        "register": "Wenn Sie noch kein Konto haben, können Sie hier eines erstellen."
     }
 }
