@@ -30,4 +30,4 @@ To run this app locally or for development:
 
 1. Clone the repository:  
    ```bash
-   git clone 
+   git clone https://github.com/elnaz-gharoon/foreigner-portal.git
