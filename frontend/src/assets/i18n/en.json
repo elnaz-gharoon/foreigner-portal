@@ -1,6 +1,10 @@
 {
           "common": {
                     "title": "Welcome to Foreigner Portal!",
-                    "message": "My name is Elnaz!"
+                    "message": "Do you already have an account with us?",
+       "aboutUs": "Welcome to our app for people who are new to Germany!\nHere, you can quickly and easily find all the important information for everyday life: from doctors and lawyers to government offices, housing, schools, leisure activities, and much more.\nWe help you navigate life in Germany safely and confidently, make informed decisions, and make your daily routine easier.\nOur app is designed to guide, inform, and support you – so that your start in Germany becomes simpler, clearer, and more independent.",
+
+                    "register": "If you don't have an account, you can create one here"
           }
+         
 }

@@ -1,6 +1,8 @@
 {
     "common": {
         "title": "Willkommen beim Ausländerportal!",
-        "message": "Mein Name ist Elnaz!"
+        "message": "Haben Sie bereits ein Konto bei uns?",
+        "aboutUs" : "Willkommen in unserer App für Menschen, die neu in Deutschland sind!\nHier finden Sie schnell und einfach alle wichtigen Informationen für den Alltag: von Ärzt:innen und Anwält:innen über Behörden und Wohnungen bis hin zu Schulen, Freizeitangeboten und vielem mehr.\nWir helfen Ihnen, sich sicher und selbstbewusst in Deutschland zurechtzufinden, wichtige Entscheidungen gut zu treffen und Ihren Alltag leichter zu gestalten.\nMit unserer App wollen wir Sie begleiten, informieren und unterstützen – damit Ihr Start in Deutschland einfacher, klarer und selbstbestimmter wird.",
+        "register": "Wenn Sie noch kein Konto haben, können Sie hier eines erstellen."
     }
 }
