@@ -4,6 +4,7 @@ import { Profession } from '../../models/profession.model';
 import { AppState } from '../../state/app.state';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { ApiService } from '../../services/api.service';
 
 
 @Component({
@@ -18,7 +19,11 @@ export class SearchProfessionsComponent implements OnInit {
 
   jobsTitleList: string[] = [];
   filterJobs : Profession[] = [];
-  constructor(private store: Store) {
+  constructor(private store: Store, private apiService: ApiService) {
+    apiService.getProfessions().subscribe((professions) => {
+      console.log('>>>>>>>>>>>>>>>>>professions from api:', professions);
+      this.filterJobs = professions;
+    });
   }
 
   ngOnInit(): void {

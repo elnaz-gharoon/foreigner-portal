@@ -26,18 +26,18 @@ public class ProfessionController {
     }
 
     @PostMapping
-    public Profession create(@RequestBody Profession profession) {
-        return service.addProfession(profession);
+    public void createProfession(@RequestBody Profession profession) {
+        service.addProfession(profession);
     }
 
-   /* @PutMapping("/{id}")
-    public Profession update(@PathVariable String id, @RequestBody Profession profession) {
-        return service.updateProfession(id, profession);
+    @PutMapping("/{id}")
+    public void update(@PathVariable String id, @RequestBody Profession profession) {
+        service.updateProfession(id, profession);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.deleteProfession(id);
         return ResponseEntity.noContent().build();
-    }*/
+    }
 }
