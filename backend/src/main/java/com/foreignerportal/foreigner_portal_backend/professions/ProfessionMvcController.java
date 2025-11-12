@@ -12,8 +12,8 @@ public class ProfessionMvcController {
     @GetMapping("/mvc/professions")
     public String getProfessions(Model model) {
         List<Profession> professions = new ArrayList<>();
-        professions.add(new Profession("100", "Arzt", "Tim", "465232"));
-        professions.add(new Profession("200", "Lehrer", "Tommy", "123211"));
+      //  professions.add(new Profession("100", "Arzt", "Tim", "465232"));
+      //  professions.add(new Profession("200", "Lehrer", "Tommy", "123211"));
 
         model.addAttribute("professions", professions);
         return "professions";

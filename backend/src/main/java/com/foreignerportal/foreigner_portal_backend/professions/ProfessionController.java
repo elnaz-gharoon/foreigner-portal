@@ -18,19 +18,19 @@ public class ProfessionController {
         return service.getAllProfessions();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Profession> getById(@PathVariable String id) {
-        return service.getProfessionById(id)
+    @GetMapping("/{title}")
+    public ResponseEntity<Profession> getByTitle(@PathVariable String title) {
+        return service.getProfessionByTitle(title)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public Profession create(@RequestBody Profession profession) {
-        return service.createProfession(profession);
+        return service.addProfession(profession);
     }
 
-    @PutMapping("/{id}")
+   /* @PutMapping("/{id}")
     public Profession update(@PathVariable String id, @RequestBody Profession profession) {
         return service.updateProfession(id, profession);
     }
@@ -39,5 +39,5 @@ public class ProfessionController {
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.deleteProfession(id);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 }
