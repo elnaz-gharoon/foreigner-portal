@@ -36,7 +36,7 @@ public class ProfessionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable int id) {
         service.deleteProfession(id);
         return ResponseEntity.noContent().build();
     }

@@ -26,8 +26,8 @@ public class ProfessionService {
         professionRepository.addProfession(profession);
     }
 
-    public boolean deleteProfession(String title) {
-       return professionRepository.deleteProfession(title);
+    public boolean deleteProfession(int id) {
+       return professionRepository.deleteProfession(id);
     }
 
     public void updateProfession(String title, Profession updatedProfession) {

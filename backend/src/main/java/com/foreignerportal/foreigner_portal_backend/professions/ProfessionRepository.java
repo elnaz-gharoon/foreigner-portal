@@ -33,7 +33,7 @@ public class ProfessionRepository {
         OpeningHours openingHours2 = new OpeningHours(weekdayHours, weekdayHours, weekdayHours, weekdayHours, weekdayHours, null, null);
 
         Profession profession1 = new Profession(
-                "Software Development",
+                 12, "Software Development",
                 "We develop enterprise applications and offer IT consulting.",
                 "Anna Schmidt",
                 "0691234567",
@@ -45,7 +45,7 @@ public class ProfessionRepository {
         );
 
         Profession profession2 = new Profession(
-                "Architecture Office",
+                15, "Architecture Office",
                 "Modern architecture and sustainable building design.",
                 "Markus Weber",
                 "0211123456",
@@ -74,7 +74,7 @@ public class ProfessionRepository {
         this.professions.add(profession);
     }
 
-    public boolean deleteProfession(String title) {
-        return professions.removeIf(p -> p.getTitle().equalsIgnoreCase(title));
+    public boolean deleteProfession(int id) {
+        return professions.removeIf(p -> p.getId() == id);
     }
 }

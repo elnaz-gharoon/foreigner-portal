@@ -2,6 +2,7 @@ package com.foreignerportal.foreigner_portal_backend.professions;
 
 public class Profession {
 
+    private int id;
     private String title;
     private String description;
     private String manager;
@@ -12,7 +13,8 @@ public class Profession {
     private String email;
     private OpeningHours openingHours;
 
-    public Profession(String title, String description, String manager, String phone, Person manager1, Address address, String phoneNumber, String email, OpeningHours openingHours) {
+    public Profession(int id, String title, String description, String manager, String phone, Person manager1, Address address, String phoneNumber, String email, OpeningHours openingHours) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.manager = manager;
@@ -22,6 +24,14 @@ public class Profession {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.openingHours = openingHours;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
