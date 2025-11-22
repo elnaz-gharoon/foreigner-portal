@@ -14,24 +14,24 @@ public class ProfessionController {
     private ProfessionService service;
 
     @GetMapping
-    public List<Profession> getAll() {
+    public List<ProfessionEntity> getAll() {
         return service.getAllProfessions();
     }
 
     @GetMapping("/{title}")
-    public ResponseEntity<Profession> getByTitle(@PathVariable String title) {
+    public ResponseEntity<ProfessionEntity> getByTitle(@PathVariable String title) {
         return service.getProfessionByTitle(title)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public void createProfession(@RequestBody Profession profession) {
+    public void createProfession(@RequestBody ProfessionEntity profession) {
         service.addProfession(profession);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable String id, @RequestBody Profession profession) {
+    public void update(@PathVariable String id, @RequestBody ProfessionEntity profession) {
         service.updateProfession(id, profession);
     }
 

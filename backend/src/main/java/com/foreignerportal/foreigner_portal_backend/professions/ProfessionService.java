@@ -10,27 +10,27 @@ import java.util.Optional;
 public class ProfessionService {
 
     @Autowired
-    private ProfessionRepository professionRepository;
+    private ProfessionRepo professionRepo;
 
     public ProfessionService() {}
 
-    public List<Profession> getAllProfessions() {
-        return professionRepository.getProfessions();
+    public List<ProfessionEntity> getAllProfessions() {
+        return professionRepo.findAll();
     }
 
-    public Optional<Profession> getProfessionByTitle(String title) {
-        return this.professionRepository.getProfessionByTitle(title);
+    public Optional<ProfessionEntity> getProfessionByTitle(String title) {
+        return this.professionRepo.findByTitleIgnoreCase(title);
     }
 
-    public void addProfession(Profession profession) {
-        professionRepository.addProfession(profession);
+    public void addProfession(ProfessionEntity professionEntity) {
+        professionRepo.save(professionEntity);
     }
 
-    public boolean deleteProfession(int id) {
-       return professionRepository.deleteProfession(id);
+    public void deleteProfession(int id) {
+        professionRepo.deleteById(id);
     }
 
-    public void updateProfession(String title, Profession updatedProfession) {
+    public void updateProfession(String title, ProfessionEntity updatedProfession) {
 
     }
 }
