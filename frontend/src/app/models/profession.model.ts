@@ -7,7 +7,7 @@ export interface Profession {
     description: string;
     manager: Person;
     address: Address;
-    phoneNumber?: string;
+    phone?: string;
     email: string;
     openingHours: OpeningHours;
 }

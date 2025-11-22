@@ -1,5 +1,7 @@
 package com.foreignerportal.foreigner_portal_backend.professions;
 
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 import java.util.Optional;
 

@@ -1,10 +1,10 @@
 import { Component, OnInit, signal, Signal } from '@angular/core';
 import {Store} from '@ngxs/store';
 import { Profession } from '../../models/profession.model';
-import { AppState } from '../../state/app.state';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from '../../services/api.service';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -15,26 +15,36 @@ import { ApiService } from '../../services/api.service';
 })
 export class SearchProfessionsComponent implements OnInit {
 
-  professionsSignal: Signal<Profession[]> = signal([]);
-
   jobsTitleList: string[] = [];
   filterJobs : Profession[] = [];
   constructor(private store: Store, private apiService: ApiService) {
-    apiService.getProfessions().subscribe((professions) => {
-      console.log('>>>>>>>>>>>>>>>>>professions from api:', professions);
+    apiService.getProfessions()
+    .pipe(
+      map((professions: any[]) => {
+        const result: Profession[] = [];
+        professions.forEach((beProfession) => {
+          const {city, street, street_no, plz, no, state, ...rest} = beProfession;
+
+          const profession: Profession = {...rest};
+          profession.address = {city, street, plz, no: street_no, state};
+          result.push(profession);
+        });
+        return result;
+      })
+    )
+    .subscribe((professions) => {
       this.filterJobs = professions;
+      console.log('>>>> inside subscribe filterJobs:', this.filterJobs);
     });
+
+    console.log('>>>> outside subscribe filterJobs:', this.filterJobs);
   }
 
   ngOnInit(): void {
-    this.professionsSignal = this.store.selectSignal(AppState.getProfessions);
 
-    this.jobsTitleList = [...new Set(this.professionsSignal().map(p => p.title))];
   }
 
   onJobTitleFilter(jobTitle: string): void {
-     this.filterJobs = this.professionsSignal().filter(p => p.title.toLowerCase() === jobTitle.toLowerCase());
-
     console.log('>>>>>>>>>>>>>>>>JOB TITLE:', jobTitle);
   }
 }

@@ -1,8 +1,13 @@
 package com.foreignerportal.foreigner_portal_backend.professions;
 
 import com.foreignerportal.foreigner_portal_backend.professions.enums.GermanStateEnum;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 
 public class Address {
+
+    @Id
     private String street;
     private String no;
     private int plz; // entspricht number in TS
