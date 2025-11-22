@@ -1,5 +1,5 @@
 import { Component, OnInit, signal, Signal } from '@angular/core';
-import {Store} from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { Profession } from '../../models/profession.model';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,37 +14,39 @@ import { map } from 'rxjs';
   styleUrl: './search-professions.component.scss'
 })
 export class SearchProfessionsComponent implements OnInit {
-
   jobsTitleList: string[] = [];
-  filterJobs : Profession[] = [];
+  filterJobs: Profession[] = [];
   constructor(private store: Store, private apiService: ApiService) {
-    apiService.getProfessions()
-    .pipe(
-      map((professions: any[]) => {
-        const result: Profession[] = [];
-        professions.forEach((beProfession) => {
-          const {city, street, street_no, plz, no, state, ...rest} = beProfession;
 
-          const profession: Profession = {...rest};
-          profession.address = {city, street, plz, no: street_no, state};
-          result.push(profession);
-        });
-        return result;
-      })
-    )
-    .subscribe((professions) => {
-      this.filterJobs = professions;
-      console.log('>>>> inside subscribe filterJobs:', this.filterJobs);
-    });
+  }
+
+  ngOnInit(): void {
+    this.apiService.getProfessions()
+      .pipe(
+        map((professions: any[]) => {
+          const result: Profession[] = [];
+          professions.forEach((beProfession) => {
+            const { city, street, street_no, plz, no, state, ...rest } = beProfession;
+
+            const profession: Profession = { ...rest };
+            profession.address = { city, street, plz, no: street_no, state };
+            result.push(profession);
+          });
+          return result;
+        })
+      )
+      .subscribe((professions) => {
+        this.filterJobs = professions;
+        console.log('>>>> inside subscribe filterJobs:', this.filterJobs);
+      });
 
     console.log('>>>> outside subscribe filterJobs:', this.filterJobs);
   }
 
-  ngOnInit(): void {
+  onSearchProfessions() {
 
   }
 
-  onJobTitleFilter(jobTitle: string): void {
-    console.log('>>>>>>>>>>>>>>>>JOB TITLE:', jobTitle);
-  }
+  onJobTitleFilter(jobTitle: string) { }
+
 }
